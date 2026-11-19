@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+*.log
+app/android/build/
+app/android/.gradle/
+app/ios/App/Pods/
+.DS_Store
+Thumbs.db

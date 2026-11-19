@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  html[data-theme="executive-midnight"] {
+    --bg-app: #060a12;
+    --bg-sidebar: #090e18;
+    --bg-surface: #0f172a;
+    --bg-surface-hover: #1e293b;
+    --bg-hover: #1e293b;
+    --bg-card: #0d1527;
+    --bg-input: #09101d;
+    --border-subtle: #1e293b;
+    --border-highlight: #3b82f6;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent-primary: #2563eb;
+    --accent-hover: #3b82f6;
+    --accent-contrast: #ffffff;
+  }
+
+  html[data-theme="slate-teal"] {
+    --bg-app: #F8FAFC;
+    --bg-sidebar: #F1F5F9;
+    --bg-surface: #FFFFFF;
+    --bg-surface-hover: #E2E8F0;
+    --bg-hover: #E2E8F0;
+    --bg-card: #FFFFFF;
+    --bg-input: #FFFFFF;
+    --border-subtle: #CBD5E1;
+    --border-highlight: #0D9488;
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+    --text-muted: #64748B;
+    --accent-primary: #0D9488;
+    --accent-hover: #0F766E;
+    --accent-contrast: #FFFFFF;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    overscroll-behavior-y: contain;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
