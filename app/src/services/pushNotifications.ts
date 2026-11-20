@@ -13,7 +13,8 @@ let registeredToken: string | null = null;
 export async function initNativePush(
   onNewMailWakeup: () => void
 ): Promise<string | null> {
-  if (!Capacitor.isNativePlatform()) {
+  // Evita crash nativo no Android (FirebaseApp not initialized) enquanto google-services.json não for adicionado
+  if (!Capacitor.isNativePlatform() || import.meta.env.VITE_ENABLE_NATIVE_PUSH !== 'true') {
     return null;
   }
 
