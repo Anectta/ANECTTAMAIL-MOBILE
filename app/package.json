@@ -1,6 +1,6 @@
 {
   "name": "anectta-mail-mobile",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "Anectta MAIL Mobile - Android & iOS (React + Tailwind + Capacitor)",
@@ -14,11 +14,11 @@
   },
   "dependencies": {
     "@capacitor/app": "^6.0.2",
+    "@capacitor/browser": "^6.0.0",
     "@capacitor/core": "^6.2.0",
     "@capacitor/haptics": "^6.0.2",
     "@capacitor/keyboard": "^6.0.3",
     "@capacitor/preferences": "^6.0.0",
-    "@capacitor/push-notifications": "^6.0.0",
     "@capacitor/status-bar": "^6.0.2",
     "dompurify": "^3.2.4",
     "lucide-react": "^0.475.0",

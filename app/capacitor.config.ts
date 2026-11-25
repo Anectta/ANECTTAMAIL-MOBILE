@@ -5,10 +5,6 @@ const config: CapacitorConfig = {
   appName: 'Anectta MAIL',
   webDir: 'dist',
   backgroundColor: '#060a12',
-  server: {
-    androidScheme: 'http',
-    cleartext: true,
-  },
   plugins: {
     StatusBar: {
       style: 'DARK',

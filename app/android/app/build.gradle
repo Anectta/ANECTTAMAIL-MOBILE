@@ -7,8 +7,8 @@ android {
         applicationId "com.anectta.mail"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "0.2.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -20,6 +20,20 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    // Angus Mail (EPL-2.0) traz arquivos de licença com o mesmo nome em mais de um jar
+    packagingOptions {
+        resources {
+            pickFirsts += ['META-INF/LICENSE.md', 'META-INF/NOTICE.md', 'META-INF/LICENSE.txt', 'META-INF/NOTICE.txt']
+        }
+    }
+    testOptions {
+        unitTests.all {
+            testLogging {
+                events 'passed', 'failed', 'skipped'
+                exceptionFormat 'full'
+            }
         }
     }
 }
@@ -36,7 +50,13 @@ dependencies {
     implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
     implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
     implementation project(':capacitor-android')
+    // Motor de e-mail: conexão direta IMAP/SMTP do aparelho (Eclipse Angus Mail, EPL-2.0)
+    implementation 'org.eclipse.angus:jakarta.mail:2.0.5'
+    implementation 'org.eclipse.angus:angus-activation:2.0.3'
+    implementation 'jakarta.activation:jakarta.activation-api:2.1.4'
     testImplementation "junit:junit:$junitVersion"
+    // Servidor IMAP/SMTP de teste, só para os testes do motor (Apache-2.0)
+    testImplementation 'com.icegreen:greenmail:2.1.15'
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
     implementation project(':capacitor-cordova-android-plugins')
@@ -51,4 +71,9 @@ try {
     }
 } catch(Exception e) {
     logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}
+
+// Código-fonte em UTF-8 (mensagens em português com acentos)
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }

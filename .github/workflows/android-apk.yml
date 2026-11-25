@@ -30,11 +30,11 @@ jobs:
           npm run build
           npx cap sync android
 
-      - name: Build Android Debug APK
+      - name: Test mail engine (IMAP/SMTP) and build Android Debug APK
         working-directory: app/android
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew testDebugUnitTest assembleDebug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4

@@ -7,3 +7,6 @@ app/android/.gradle/
 app/ios/App/Pods/
 .DS_Store
 Thumbs.db
+
+# IDE
+app/android/.idea/
